@@ -1,2 +1,0 @@
-# meowfacts
-Simple recruitment task
