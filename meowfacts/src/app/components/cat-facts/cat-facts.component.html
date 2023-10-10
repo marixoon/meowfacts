@@ -1,0 +1,11 @@
+<div *ngFor="let fact of facts$ | async" class="fact">
+  {{fact}}
+</div>
+
+<div
+  infinite-scroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollUpDistance]="1.5"
+  [infiniteScrollThrottle]="300"
+  (scrolled)="loadMoreFacts()">
+</div>
