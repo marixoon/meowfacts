@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {LoginService} from "../../services/login.service";
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,11 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 export class LoginComponent {
   public loginForm: FormGroup;
 
-  constructor(private router: Router, private fb: FormBuilder) {
+  constructor(
+    private readonly router: Router,
+    private readonly fb: FormBuilder,
+    private readonly loginService: LoginService
+  ) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -23,7 +28,7 @@ export class LoginComponent {
       const password = this.loginForm.get('password')?.value;
 
       if (username && password) {
-        localStorage.setItem('user', JSON.stringify({ username: username }));
+        this.loginService.loginUser(username);
         this.router.navigate(['/cat-facts']);
       }
     } else {

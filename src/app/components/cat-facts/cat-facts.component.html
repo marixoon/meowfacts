@@ -1,11 +1,14 @@
-<div *ngFor="let fact of facts$ | async" class="fact">
-  {{fact}}
-</div>
-
 <div
   infinite-scroll
+  class="infinite-scroll-container"
   [infiniteScrollDistance]="2"
-  [infiniteScrollUpDistance]="1.5"
-  [infiniteScrollThrottle]="300"
+  [infiniteScrollThrottle]="100"
   (scrolled)="loadMoreFacts()">
+  <div class="facts-container" *ngFor="let fact of facts$ | async">
+    <mat-card class="fact-card">
+      <mat-card-content>
+        {{ fact }}
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>

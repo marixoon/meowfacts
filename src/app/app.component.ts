@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginService } from "./services/login.service";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'meowfacts';
+  public title = 'Meow App 🐾';
+  constructor(private readonly loginService: LoginService) {}
+
+  public isLoggedIn(): boolean {
+    return this.loginService.isLoggedIn();
+  }
+
+  public logout(): void {
+    this.loginService.logoutUser();
+  }
 }

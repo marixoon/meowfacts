@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'CatEyes';
+  src: url('assets/fonts/CatEyes.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GrumpyCat';
+  src: url('assets/fonts/GrumpyCat.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  align-items: center;
+  background-image: url('assets/images/background.png');
+}
